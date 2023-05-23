@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article</title>
+  </head>
+  <body>
+    <h1>Post ID: <span data-th-text="${postId}"></span></h1>
+    <table>
+      <tr>
+        <td>Uploaded:</td>
+        <td data-th-text="${uploaded}"></td>
+      </tr>
+      <tr>
+        <td>Title:</td>
+        <td data-th-text="${title}"></td>
+      </tr>
+      <tr>
+        <td>Content:</td>
+        <td data-th-text="${content}"></td>
+      </tr>
+      <tr>
+        <td>Image By Path Variable:</td>
+        <td>
+          <img data-th-src="${imageSrc}" alt="Image" style="width: 200px" />
+        </td>
+      </tr>
+      <tr>
+        <td>Image By Session:</td>
+        <td><img src="/image" alt="image" style="width: 200px" /></td>
+      </tr>
+    </table>
+  </body>
+</html>

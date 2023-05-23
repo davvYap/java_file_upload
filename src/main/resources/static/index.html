@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article</title>
+  </head>
+  <body>
+    <h1>Article Submission</h1>
+    <form action="/article" method="post" enctype="multipart/form-data">
+      <table>
+        <tr>
+          <td>Title:</td>
+          <td><input type="text" name="title" size="30" placeholder="Input title..." /></td>
+        </tr>
+        <tr>
+          <td>Content:</td>
+          <td>
+            <textarea name="content" cols="30" rows="10" placeholder="any content..."></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Image:</td>
+          <td><input type="file" name="imageFile" size="30" accept="image/*" /></td>
+        </tr>
+      </table>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
