@@ -31,6 +31,12 @@
         <td>Image By Session:</td>
         <td><img src="/image" alt="image" style="width: 200px" /></td>
       </tr>
+      <tr>
+        <td>Image By Base64:</td>
+        <td>
+          <img data-th-src="${'data:image/png;base64,'+image64}" alt="Image" style="width: 200px" />
+        </td>
+      </tr>
     </table>
   </body>
 </html>

@@ -1,6 +1,7 @@
 package sg.edu.nus.iss.workshop37.controllers;
 
 import java.io.IOException;
+import java.util.Base64;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,6 +39,7 @@ public class ArticleController {
         model.addAttribute("title", title);
         model.addAttribute("content", content);
         model.addAttribute("imageSrc", "/image/%s".formatted(postId));
+        model.addAttribute("image64", convertImageToBase64(articleSvc.getArticleImage(postId)));
 
         session.setAttribute("image", articleSvc.getArticleImage(postId));
         return "article";
@@ -61,5 +63,9 @@ public class ArticleController {
         ;
 
         return ResponseEntity.status(HttpStatus.OK).body(img);
+    }
+
+    public String convertImageToBase64(byte[] image) {
+        return Base64.getEncoder().encodeToString(image);
     }
 }
