@@ -5,8 +5,6 @@ import java.util.Base64;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,6 +38,10 @@ public class ArticleController {
         model.addAttribute("content", content);
         model.addAttribute("imageSrc", "/image/%s".formatted(postId));
         model.addAttribute("image64", convertImageToBase64(articleSvc.getArticleImage(postId)));
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("data:image/png;base64,").append(convertImageToBase64(articleSvc.getArticleImage(postId)));
+        model.addAttribute("imageSB", sb.toString());
 
         session.setAttribute("image", articleSvc.getArticleImage(postId));
         return "article";
